@@ -1,17 +1,27 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 text-center" style="border: solid 1px black; border-radius: 10px;">
+                <h2>@Html.ActionLink("Ja sou cliente!", "Client", "Home", new { @style="color:black;" })</h2>
+                <p>
+                    Caso voce ja seja cliente do nosso banco, pode realizar o cadastro de sua senha apertando no link acima!
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 text-center" style="border: solid 1px black; border-radius: 10px;">
+                <h2>@Html.ActionLink("Tenho interesse!", "NotClient", "Home", new { @style = "color:black;" })</h2>
+                <p>
+                    Caso voce nao seja cliente e tenha interesse em receber noticias e avisos sobre nossos produtos, pode se
+                    cadastrar apertando no link acima!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>

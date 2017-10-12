@@ -15,15 +15,21 @@ namespace OoR_Site.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Client()
+        {
+            return View();
+        }
+
+        public ActionResult NotClient()
+        {
             return View();
         }
     }

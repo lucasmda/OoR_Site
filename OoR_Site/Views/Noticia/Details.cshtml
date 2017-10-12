@@ -1,0 +1,43 @@
+﻿@model OoR_Site.Models.Noticia
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Noticia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_produto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_produto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
