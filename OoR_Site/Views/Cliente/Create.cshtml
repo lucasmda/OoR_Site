@@ -1,10 +1,9 @@
 ﻿@model OoR_Site.Models.Cliente
 
 @{
-    ViewBag.Title = "Cadastrar Cliente";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 <div class="row">
     <h4>Cadastrar um novo Cliente</h4>
     <hr />
@@ -13,6 +12,7 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
+
                 <div class="form-horizontal">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">

@@ -11,7 +11,7 @@ namespace OoR_Site.Controllers
         // GET: Contato
         public ActionResult Index()
         {
-            return View("Contact");
+            return View("Home/Contact");
         }
         
         public ActionResult Cliente()

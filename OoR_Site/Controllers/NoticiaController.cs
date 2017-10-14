@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OoR_Site.Repositorio;
+using OoR_Site.Models;
 
 namespace OoR_Site.Controllers
 {
     public class NoticiaController : Controller
     {
-        // GET: Noticia
+        private NoticiaRepositorio db = new NoticiaRepositorio();
+
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("List");
         }
 
         public ActionResult Create()
@@ -19,14 +22,41 @@ namespace OoR_Site.Controllers
             return View();
         }
 
-        public ActionResult Edit()
+        [HttpPost]
+        public ActionResult Create(Noticia noticia)
         {
-            return View();
+            db.InsertNoticia(noticia);
+
+            return RedirectToAction("List");
         }
 
-        public ActionResult Details()
+        public ActionResult List()
         {
-            return View();
+            var noticias = db.GetNoticias();
+
+            return View("Index", noticias);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            db.DeleteNoticia(id);
+
+            return RedirectToAction("List");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var noticia = db.GetNoticiaById(id);
+
+            return View(noticia);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Noticia noticia)
+        {
+            db.UpdateNoticia(noticia);
+
+            return RedirectToAction("List");
         }
     }
 }

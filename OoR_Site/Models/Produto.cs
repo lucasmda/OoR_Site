@@ -8,7 +8,7 @@ namespace OoR_Site.Models
 {
     public class Produto
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Display(Name = "Produto")]
         public string produto { get; set; }
     }

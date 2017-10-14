@@ -4,19 +4,18 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <h2>Clientes</h2>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6 text-right">
+        @Html.ActionLink("Cadastre um novo Cliente", "Create", new { @class = "btn" })
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.senha)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.cep)
@@ -66,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.valorDivida)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

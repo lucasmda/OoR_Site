@@ -8,7 +8,7 @@ namespace OoR_Site.Models
 {
     public class Noticia
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Display(Name = "Descricao")]
         public string descricao { get; set; }
         [Display(Name = "Usuario")]
@@ -16,8 +16,8 @@ namespace OoR_Site.Models
         [Display(Name = "Produto")]
         public int id_produto { get; set; }
         [Display(Name = "Usuario")]
-        public Usuario usuario;
+        public Usuario Usuario;
         [Display(Name = "Produto")]
-        public Produto produto;
+        public Produto Produto;
     }
 }

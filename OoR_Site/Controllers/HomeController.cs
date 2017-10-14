@@ -32,5 +32,10 @@ namespace OoR_Site.Controllers
         {
             return View();
         }
+
+        public ActionResult CadastroSenha()
+        {
+            return View();
+        }
     }
 }
