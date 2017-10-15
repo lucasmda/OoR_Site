@@ -8,6 +8,7 @@ namespace OoR_Site.Models
 {
     public class Usuario
     {
+        public int Id { get; set; }
         [Display(Name = "Nome")]
         public string nome { get; set; }
         [Display(Name = "Senha")]

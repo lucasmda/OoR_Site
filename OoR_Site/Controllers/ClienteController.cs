@@ -23,7 +23,7 @@ namespace OoR_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create([Bind(Include = "nome, senha, cep, telefone, cpf, dataNascimento, email, valorDivida")]Cliente cliente)
         {
             db.InsertCliente(cliente);
 
@@ -52,7 +52,7 @@ namespace OoR_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Cliente cliente)
+        public ActionResult Edit([Bind(Include = "nome, senha, cep, telefone, cpf, dataNascimento, email, valorDivida")]Cliente cliente)
         {
             db.UpdateCliente(cliente);
 

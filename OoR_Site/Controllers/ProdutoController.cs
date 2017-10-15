@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OoR_Site.Models;
@@ -11,7 +14,7 @@ namespace OoR_Site.Controllers
     public class ProdutoController : Controller
     {
         private ProdutoRepositorio db = new ProdutoRepositorio();
-        
+
         public ActionResult Index()
         {
             return RedirectToAction("List");
@@ -23,9 +26,9 @@ namespace OoR_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Produto produto)
+        public ActionResult Create([Bind(Include = "produto")]Produto p)
         {
-            db.InsertProduto(produto);
+            db.InsertProduto(p);
 
             return RedirectToAction("List");
         }
@@ -47,14 +50,14 @@ namespace OoR_Site.Controllers
         public ActionResult Edit(int id)
         {
             var produto = db.GetProdutoById(id);
-            
+
             return View(produto);
         }
 
         [HttpPost]
-        public ActionResult Editar(Produto produto)
+        public ActionResult Edit([Bind(Include = "produto")]Produto p)
         {
-            db.UpdateProduto(produto);
+            db.UpdateProduto(p);
 
             return RedirectToAction("List");
         }

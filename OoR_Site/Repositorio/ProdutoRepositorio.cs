@@ -27,9 +27,9 @@ namespace OoR_Site.Repositorio
             return _context.produtos.Find(id);
         }
 
-        public void InsertProduto(Produto produto)
+        public void InsertProduto(Produto p)
         {
-            _context.produtos.Add(produto);
+            _context.produtos.Add(p);
             _context.SaveChanges();
         }
 
