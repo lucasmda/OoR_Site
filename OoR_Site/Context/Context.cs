@@ -21,6 +21,7 @@ namespace OoR_Site.Context
         public DbSet<Cliente> clientes { get; set; }
         public DbSet<Noticia> noticias { get; set; }
         public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Contato> contatos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -46,5 +46,20 @@ namespace OoR_Site.Repositorio
             _context.Entry(cliente).State = EntityState.Modified;
             _context.SaveChanges();
         }
+
+        public Boolean ValidaCpf(Cliente cliente)
+        {
+            Boolean result = false;
+
+            var validCpf = _context.clientes.Where(
+                c => c.cpf == cliente.cpf
+            ).FirstOrDefault();
+
+            if (validCpf != null)
+            {
+                return result = true;
+            }
+            return result;
+        }
     }
 }

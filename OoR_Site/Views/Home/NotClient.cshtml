@@ -7,9 +7,8 @@
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <section>
-            @using (Html.BeginForm("ClientRegister", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm())
             {
-                @Html.AntiForgeryToken()
                 <h4>Tenho interesse em Produtos e Noticias!</h4>
                 <hr />
                 <div class="row">

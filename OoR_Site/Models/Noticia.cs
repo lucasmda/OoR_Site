@@ -9,6 +9,8 @@ namespace OoR_Site.Models
     public class Noticia
     {
         public int Id { get; set; }
+        [Display(Name = "Titulo")]
+        public string titulo { get; set; }
         [Display(Name = "Descricao")]
         public string descricao { get; set; }
         [Display(Name = "Usuario")]
