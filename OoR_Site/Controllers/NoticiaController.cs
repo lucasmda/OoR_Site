@@ -52,7 +52,7 @@ namespace OoR_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "titulo, descricao, id_usuario, id_produto")]Noticia noticia)
+        public ActionResult Edit([Bind(Include = "Id, titulo, descricao, id_usuario, id_produto")]Noticia noticia)
         {
             db.UpdateNoticia(noticia);
 

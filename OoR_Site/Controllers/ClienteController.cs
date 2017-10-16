@@ -52,7 +52,7 @@ namespace OoR_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "nome, senha, cep, telefone, cpf, dataNascimento, email, valorDivida")]Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id, nome, senha, cep, telefone, cpf, dataNascimento, email, valorDivida")]Cliente cliente)
         {
             db.UpdateCliente(cliente);
 

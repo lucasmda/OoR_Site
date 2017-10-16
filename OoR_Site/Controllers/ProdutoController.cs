@@ -55,7 +55,7 @@ namespace OoR_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "produto")]Produto p)
+        public ActionResult Edit([Bind(Include = "Id, produto")]Produto p)
         {
             db.UpdateProduto(p);
 
