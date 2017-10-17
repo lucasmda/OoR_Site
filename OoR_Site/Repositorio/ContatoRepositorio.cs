@@ -46,5 +46,14 @@ namespace OoR_Site.Repositorio
             _context.Entry(contato).State = EntityState.Modified;
             _context.SaveChanges();
         }
+
+        public IEnumerable<Contato> Search(Contato contato)
+        {
+            return _context.contatos.Where(
+                            c => c.nome == contato.nome ||
+                            c.email == contato.email ||
+                            c.telefone == contato.telefone
+                          ).ToList();
+        }
     }
 }

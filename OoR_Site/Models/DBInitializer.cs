@@ -22,7 +22,7 @@ namespace OoR_Site.Models
                 cpf = "234.432.345-1",
                 dataNascimento = "27/06/2997",
                 email = "lucasmda27@gmail.com",
-                valorDivida = 1.500f
+                valorDivida = 1500f
             });
             context.clientes.Add(new Cliente()
             {
@@ -34,7 +34,7 @@ namespace OoR_Site.Models
                 cpf = "124.322.455-2",
                 dataNascimento = "30/04/1990",
                 email = "ivo.mancinelli@gmail.com",
-                valorDivida = 4.560f
+                valorDivida = 4560f
             });
             context.clientes.Add(new Cliente()
             {
@@ -46,7 +46,7 @@ namespace OoR_Site.Models
                 cpf = "342.563.213-23",
                 dataNascimento = "24/09/1986",
                 email = "natalia.moura@gmail.com",
-                valorDivida = 10.883f
+                valorDivida = 10883f
             });
 
             context.produtos.Add(new Produto() { Id = 1, produto = "Aplicativo Deal!" });
@@ -95,7 +95,31 @@ namespace OoR_Site.Models
                 descricao = "O melhor aplicativo para renegociação de dívida chegou ao mercado trazendo ótimas vantagens para você sair do vermelho.",
                 UsuarioId = 1,
                 ProdutoId = 1
-            });          
+            });
+
+            context.contatos.Add(new Contato()
+            {
+                Id = 1,
+                nome = "Lucas Modesto",
+                email = "lucasmda27@gmail.com",
+                telefone = "4377-5212"
+            });
+
+            context.contatos.Add(new Contato()
+            {
+                Id = 2,
+                nome = "Ivo Mancineli",
+                email = "ivo.mancinelli@gmail.com",
+                telefone = "4388-5234"
+            });
+
+            context.contatos.Add(new Contato()
+            {
+                Id = 2,
+                nome = "Natlia Moura",
+                email = "natalia.moura@gmail.com",
+                telefone = "2388-0912"
+            });
 
             base.Seed(context);
         }
