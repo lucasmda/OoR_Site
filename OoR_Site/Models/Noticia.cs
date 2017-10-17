@@ -14,12 +14,12 @@ namespace OoR_Site.Models
         [Display(Name = "Descricao")]
         public string descricao { get; set; }
         [Display(Name = "Usuario")]
-        public int id_usuario { get; set; }
+        public int UsuarioId { get; set; }
         [Display(Name = "Produto")]
-        public int id_produto { get; set; }
+        public int ProdutoId { get; set; }
         [Display(Name = "Usuario")]
-        public Usuario Usuario;
+        public virtual Usuario Usuario { get; set; }
         [Display(Name = "Produto")]
-        public Produto Produto;
+        public virtual Produto Produto { get; set; }
     }
 }

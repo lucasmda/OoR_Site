@@ -11,10 +11,7 @@ namespace OoR_Site.Context
     {
         public Context() : base("oor_site")
         {
-            Database.SetInitializer(new UsuarioDBInitializer());
-            //Database.SetInitializer(new ProdutoDBInitializer());
-            //Database.SetInitializer(new ClienteDBInitializer());
-            //Database.SetInitializer(new NoticiaDBInitializer());
+            Database.SetInitializer(new DBInitializer());
         }
 
         public DbSet<Produto> produtos { get; set; }

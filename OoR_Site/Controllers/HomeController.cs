@@ -17,9 +17,10 @@ namespace OoR_Site.Controllers
 
         public ActionResult Index()
         {
-            var noticias = dbNoticia.GetNoticias();
-            var produtos = dbProduto.GetProdutos();
-            return View(noticias);
+            HomeViewModel hvm = new HomeViewModel();
+            hvm.noticias = dbNoticia.GetNoticias();
+            hvm.produtos = dbProduto.GetProdutos();
+            return View(hvm);
         }
 
         public ActionResult About()

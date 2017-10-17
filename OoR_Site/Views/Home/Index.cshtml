@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OoR_Site.Models.Noticia>
+﻿@model OoR_Site.Models.HomeViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -7,23 +7,23 @@
     <div class="col-sm-12 col-md-12 col-lg-12">
         <h2><b>Noticias</b></h2>
         <hr />
-        <h3>Lançamento do aplicativo Deal!</h3>
-        <p>O melhor aplicativo para renegociação de dívida chegou ao mercado trazendo ótimas vantagens para você sair do vermelho.</p>
-        @foreach(var item in Model)
+        @foreach (var item in Model.noticias)
         {
-            <h3>@Html.DisplayFor(modelItem => item.titulo)</h3>
-            <p>@Html.DisplayFor(modelItem => item.descricao)</p>
-            <p>@Html.DisplayFor(modelItem => item.Produto.produto)</p>
+            <h3>@Html.DisplayFor(model => item.titulo)</h3>
+            <p>@Html.DisplayFor(model => item.descricao)</p>
         }
     </div>
 </div>
 <br />
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
-        <h2><b>Produtos</b></h2>
+        <h2><b>Nossos Produtos</b></h2>
         <hr />
-        <ul>
-            <li>Aplicativo Deal!: Renegociação de Dívidas.</li>
-        </ul>
+        @foreach (var item in Model.produtos)
+        {
+            <ul>
+                <li><h4>@Html.DisplayFor(model => item.produto)</h4></li>
+            </ul>
+        }
     </div>
 </div>
