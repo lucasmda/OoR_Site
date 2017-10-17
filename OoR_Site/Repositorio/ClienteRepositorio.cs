@@ -61,5 +61,14 @@ namespace OoR_Site.Repositorio
             }
             return result;
         }
+
+        public Cliente BuscaCpf(Cliente cliente)
+        {
+            Cliente c;
+
+            c = _context.clientes.Where(model => model.cpf == cliente.cpf).FirstOrDefault();
+
+            return c;
+        }
     }
 }

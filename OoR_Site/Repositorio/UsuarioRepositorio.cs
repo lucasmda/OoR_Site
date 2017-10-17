@@ -17,7 +17,7 @@ namespace OoR_Site.Repositorio
             _context = new Context.Context();
         }
 
-        public IEnumerable<Usuario> GetClientes()
+        public IEnumerable<Usuario> GetUsuarios()
         {
             return _context.usuarios;
         }

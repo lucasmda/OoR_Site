@@ -11,6 +11,8 @@ namespace OoR_Site.Controllers
     public class NoticiaController : Controller
     {
         private NoticiaRepositorio db = new NoticiaRepositorio();
+        private UsuarioRepositorio dbUsuario = new UsuarioRepositorio();
+        private ProdutoRepositorio dbProduto = new ProdutoRepositorio();
 
         public ActionResult Index()
         {
@@ -19,11 +21,13 @@ namespace OoR_Site.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.Usuarios = dbUsuario.GetUsuarios();
+            ViewBag.Produtos = dbProduto.GetProdutos();
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "titulo, descricao, id_usuario, id_produto")]Noticia noticia)
+        public ActionResult Create([Bind(Include = "titulo, descricao, UsuarioId, ProdutoId")]Noticia noticia)
         {
             db.InsertNoticia(noticia);
 
@@ -47,12 +51,13 @@ namespace OoR_Site.Controllers
         public ActionResult Edit(int id)
         {
             var noticia = db.GetNoticiaById(id);
-
+            ViewBag.Usuarios = dbUsuario.GetUsuarios();
+            ViewBag.Produtos = dbProduto.GetProdutos();
             return View(noticia);
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "Id, titulo, descricao, id_usuario, id_produto")]Noticia noticia)
+        public ActionResult Edit([Bind(Include = "Id, titulo, descricao, UsuarioId, ProdutoId")]Noticia noticia)
         {
             db.UpdateNoticia(noticia);
 

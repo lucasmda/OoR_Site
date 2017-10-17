@@ -45,22 +45,26 @@ namespace OoR_Site.Controllers
 
             if (validaCpf)
             {
-                return RedirectToAction("CadastroSenha");
+                var c = dbCliente.BuscaCpf(cliente);
+                return RedirectToAction("CadastroSenha", "Home", new { Id = c.Id });
             }
 
             return View(cliente);
         }
 
-        public ActionResult CadastroSenha()
+        public ActionResult CadastroSenha(int Id)
         {
-            return View();
+            var c = dbCliente.GetClienteById(Id);
+            return View(c);
         }
 
         [HttpPost]
-        public ActionResult CadastroSenha([Bind(Include = "senha")]Cliente cliente)
+        public ActionResult CadastroSenha([Bind(Include = "Id, senha")]Cliente cliente)
         {
-            dbCliente.UpdateCliente(cliente);
-            return View(cliente);
+            var c = dbCliente.GetClienteById(cliente.Id);
+            c.senha = cliente.senha;
+            dbCliente.UpdateCliente(c);
+            return RedirectToAction("Index");
         }
 
         public ActionResult NotClient()
