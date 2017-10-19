@@ -70,5 +70,18 @@ namespace OoR_Site.Repositorio
 
             return c;
         }
+
+        public IEnumerable<Cliente> Search(Cliente cliente)
+        {
+            return _context.clientes.Where(
+                            c => c.nome == cliente.nome ||
+                            c.cep == cliente.cep ||
+                            c.telefone == cliente.telefone ||
+                            c.cpf == cliente.cpf ||
+                            c.dataNascimento == cliente.dataNascimento ||
+                            c.email == cliente.email ||
+                            c.valorDivida == cliente.valorDivida
+                          ).ToList();
+        }
     }
 }

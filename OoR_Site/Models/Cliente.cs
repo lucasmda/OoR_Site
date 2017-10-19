@@ -25,5 +25,7 @@ namespace OoR_Site.Models
         public string email { get; set; }
         [Display(Name = "Valor da Divida")]
         public double valorDivida { get; set; }
+
+        public IEnumerable<Cliente> clientes { get; set; }
     }
 }

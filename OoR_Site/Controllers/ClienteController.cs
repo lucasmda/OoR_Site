@@ -58,5 +58,23 @@ namespace OoR_Site.Controllers
 
             return RedirectToAction("List");
         }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search([Bind(Include = "nome, cep, telefone, cpf, dataNascimento, email, valorDivida")]Cliente cliente)
+        {
+            cliente.clientes = db.Search(cliente);
+
+            if (cliente != null)
+            {
+                return View("SearchResult", cliente);
+            }
+
+            return View(cliente);
+        }
     }
 }
