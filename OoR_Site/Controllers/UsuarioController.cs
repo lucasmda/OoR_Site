@@ -22,6 +22,7 @@ namespace OoR_Site.Controllers
                 return RedirectToAction("Index", "Admin");
             }
 
+            TempData["LoginFailed"] = "Ooops! O login falhou. Por favor, verifique suas credenciais para logar!";
             return RedirectToAction("Login", "Account");
         }
     }
