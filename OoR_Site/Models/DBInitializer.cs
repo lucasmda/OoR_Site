@@ -49,7 +49,7 @@ namespace OoR_Site.Models
                 valorDivida = 10883f
             });
 
-            context.produtos.Add(new Produto() { Id = 1, produto = "Aplicativo Deal!" });
+            context.produtos.Add(new Produto() { Id = 1, produto = "Aplicativo Deal!: Renegociação de Dívidas" });
 
             context.usuarios.Add(new Usuario()
             {

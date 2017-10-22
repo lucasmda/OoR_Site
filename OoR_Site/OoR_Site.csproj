@@ -302,8 +302,11 @@
     <Content Include="Views\Contato\Index.cshtml" />
     <Content Include="Views\Contato\Search.cshtml" />
     <Content Include="Views\Contato\SearchResult.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Cliente\Search.cshtml" />
     <Content Include="Views\Cliente\SearchResult.cshtml" />
+=======
+>>>>>>> 9116be610dc9441175202e66aa72ffd662984454
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

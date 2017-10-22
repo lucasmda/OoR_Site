@@ -64,7 +64,9 @@ namespace OoR_Site.Controllers
             var c = dbCliente.GetClienteById(cliente.Id);
             c.senha = cliente.senha;
             dbCliente.UpdateCliente(c);
-            return RedirectToAction("Index");
+
+            TempData["SenhaCadastrada"] = c.nome + ", senha cadastrada com sucesso!";
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult NotClient()

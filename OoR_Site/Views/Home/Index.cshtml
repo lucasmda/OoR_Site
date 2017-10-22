@@ -5,12 +5,24 @@
 
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
+        <br />
+        @if (TempData["SenhaCadastrada"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["SenhaCadastrada"]
+            </div>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
         <h2><b>Noticias</b></h2>
         <hr />
         @foreach (var item in Model.noticias)
         {
             <h3>@Html.DisplayFor(model => item.titulo)</h3>
             <p>@Html.DisplayFor(model => item.descricao)</p>
+            <small>- @Html.DisplayFor(model => item.Usuario.nome)</small>
         }
     </div>
 </div>
