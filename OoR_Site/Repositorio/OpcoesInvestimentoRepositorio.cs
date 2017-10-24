@@ -46,6 +46,36 @@ namespace OoR_Site.Repositorio
             _context.Entry(o).State = EntityState.Modified;
             _context.SaveChanges();
         }
+
+        public void UpdateOpcoesQuantidade(OpcoesInvestimento o, int quantidade)
+        {
+            o.quantidade = o.quantidade - quantidade;
+
+            _context.Entry(o).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+        public void InsertClienteOpcao(OpcoesInvestimento oi, Cliente c)
+        {
+            ClienteOpcao cop = new ClienteOpcao();
+            cop.ClienteId = c.Id;
+            cop.OpcoesInvestimentoId = oi.Id;
+
+            _context.cop.Add(cop);
+            _context.SaveChanges();
+        }
+
+        public IEnumerable<ClienteOpcao> Investimentos()
+        {
+            return _context.cop.ToList();
+        }
+
+        public IEnumerable<ClienteOpcao> Search(string nome)
+        {
+            return _context.cop.Where(
+                            cop => cop.Cliente.nome == nome
+                          ).ToList();
+        }
     }
 
 }

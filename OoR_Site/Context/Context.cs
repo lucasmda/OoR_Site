@@ -19,6 +19,8 @@ namespace OoR_Site.Context
         public DbSet<Noticia> noticias { get; set; }
         public DbSet<Usuario> usuarios { get; set; }
         public DbSet<Contato> contatos { get; set; }
+        public DbSet<OpcoesInvestimento> opcoes { get; set; }
+        public DbSet<ClienteOpcao> cop { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

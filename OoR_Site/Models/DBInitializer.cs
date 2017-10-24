@@ -145,6 +145,27 @@ namespace OoR_Site.Models
                 quantidade = 5
             });
 
+            context.cop.Add(new ClienteOpcao()
+            {
+                Id = 1,
+                ClienteId = 1,
+                OpcoesInvestimentoId = 2
+            });
+
+            context.cop.Add(new ClienteOpcao()
+            {
+                Id = 2,
+                ClienteId = 1,
+                OpcoesInvestimentoId = 3
+            });
+
+            context.cop.Add(new ClienteOpcao()
+            {
+                Id = 3,
+                ClienteId = 2,
+                OpcoesInvestimentoId = 1
+            });
+
             base.Seed(context);
         }
     }

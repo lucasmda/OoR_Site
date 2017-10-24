@@ -11,6 +11,7 @@ namespace OoR_Site.Controllers
     public class OpcoesInvestimentoController : Controller
     {
         private OpcoesInvestimentoRepositorio db = new OpcoesInvestimentoRepositorio();
+        private ClienteRepositorio dbCliente = new ClienteRepositorio();
 
         public ActionResult Index()
         {
@@ -57,6 +58,73 @@ namespace OoR_Site.Controllers
             db.UpdateOpcoes(opcoes);
 
             return RedirectToAction("List");
+        }
+
+        public ActionResult Investir(int id)
+        {
+            var oi = db.GetOpcoesById(id);
+            ViewBag.Opcoes = db.GetOpcoes();
+            return View(oi);
+        }
+
+        [HttpPost]
+        public ActionResult Investir([Bind(Include = "Opcao, Quantidade, Cpf, Senha")]int opcao, int quantidade, Cliente cliente)
+        {
+            var oi = db.GetOpcoesById(opcao);
+
+            if(oi.quantidade >= quantidade)
+            {
+                var c = dbCliente.BuscaCpf(cliente);
+
+                if (c != null && c.senha == cliente.senha)
+                {
+                    db.UpdateOpcoesQuantidade(oi, quantidade);
+                   // db.InsertClienteOpcao(oi, cliente);
+                }else
+                {
+                    ViewBag.Errors = "Cpf ou Senha inválido.";
+                    ViewBag.Opcoes = db.GetOpcoes();
+                    return View();
+                }
+            }else
+            {
+                ViewBag.Errors = "Quantidade maior do que a disponível.";
+                ViewBag.Opcoes = db.GetOpcoes();
+                return View();
+            }
+            
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult InvestimentosComprados()
+        {
+            ClienteOpcao cop = new ClienteOpcao();
+            cop.cops = db.Investimentos();
+            return View(cop);
+        }
+
+        public ActionResult Search()
+        {
+            ViewBag.Opcoes = db.GetOpcoes();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search([Bind(Include = "Nome")]string nome)
+        {
+            ClienteOpcao cop = new ClienteOpcao();
+            cop.cops = db.Search(nome);
+            float valorTotal = 0;
+
+            if (cop != null)
+            {
+                foreach(var item in cop.cops) {
+                    valorTotal += item.OpcoesInvestimento.valor;
+                }
+                ViewBag.ValorTotal = valorTotal;
+                return View("SearchResult", cop);
+            }
+            return View();
         }
     }
 }

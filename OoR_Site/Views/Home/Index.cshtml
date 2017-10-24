@@ -39,3 +39,31 @@
         }
     </div>
 </div>
+<br />
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <h2><b>Nossos Planos de Investimento</b></h2>
+        <hr />
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-center">Descrição</th>
+                    <th class="text-center">Valor</th>
+                    <th class="text-center">Quantidade</th>
+                    <th class="text-center">Invista!</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.opcoes)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.descricao)</td>
+                        <td class="text-center">R$@Html.DisplayFor(model => item.valor)</td>
+                        <td class="text-center">@Html.DisplayFor(model => item.quantidade)</td>
+                        <td class="text-center">@Html.ActionLink("Invista", "Investir", "OpcoesInvestimento", new { id=item.Id}, null)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
