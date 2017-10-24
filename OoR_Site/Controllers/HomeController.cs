@@ -14,12 +14,14 @@ namespace OoR_Site.Controllers
         ClienteRepositorio dbCliente = new ClienteRepositorio();
         NoticiaRepositorio dbNoticia = new NoticiaRepositorio();
         ProdutoRepositorio dbProduto = new ProdutoRepositorio();
+        OpcoesInvestimentoRepositorio dbOpcoes = new OpcoesInvestimentoRepositorio();
 
         public ActionResult Index()
         {
             HomeViewModel hvm = new HomeViewModel();
             hvm.noticias = dbNoticia.GetNoticias();
             hvm.produtos = dbProduto.GetProdutos();
+            hvm.opcoes = dbOpcoes.GetOpcoes();
             return View(hvm);
         }
 

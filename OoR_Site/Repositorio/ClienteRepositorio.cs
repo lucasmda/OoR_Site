@@ -71,6 +71,13 @@ namespace OoR_Site.Repositorio
             return c;
         }
 
+        public int BuscaCpf(string cpf)
+        {
+            Cliente c = _context.clientes.Where(model => model.cpf == cpf).FirstOrDefault();
+            int id = c.Id;
+            return id;
+        }
+
         public IEnumerable<Cliente> Search(Cliente cliente)
         {
             return _context.clientes.Where(

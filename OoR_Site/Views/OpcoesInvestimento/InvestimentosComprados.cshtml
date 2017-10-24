@@ -1,0 +1,43 @@
+﻿@model OoR_Site.Models.ClienteOpcao
+
+@{
+    ViewBag.Title = "InvestimentosComprados";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <h2>Investimentos Comprados</h2>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6 text-right">
+        @Html.ActionLink("Pesquise um Investimento Comprado", "Search", "OpcoesInvestimento", null, null)
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Cliente")
+        </th>
+        <th>
+            @Html.DisplayName("Investimento")
+        </th>
+        <th class="text-center">
+            @Html.DisplayName("Valor")
+        </th>
+    </tr>
+
+@foreach (var item in Model.cops) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpcoesInvestimento.descricao)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.OpcoesInvestimento.valor)
+        </td>
+    </tr>
+}
+
+</table>

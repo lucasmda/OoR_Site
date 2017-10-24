@@ -121,6 +121,51 @@ namespace OoR_Site.Models
                 telefone = "2388-0912"
             });
 
+            context.opcoes.Add(new OpcoesInvestimento()
+            {
+                Id = 1,
+                descricao = "Invista em nosso plano de parcelamento em 2x (duas vezes).",
+                valor = 150,
+                quantidade = 8
+            });
+
+            context.opcoes.Add(new OpcoesInvestimento()
+            {
+                Id = 2,
+                descricao = "Invista em nosso plano de parcelamento em 4x (quatro vezes).",
+                valor = 100,
+                quantidade = 6
+            });
+
+            context.opcoes.Add(new OpcoesInvestimento()
+            {
+                Id = 3,
+                descricao = "Invista em nosso plano de parcelamento em 6x (seis vezes).",
+                valor = 80,
+                quantidade = 5
+            });
+
+            context.cop.Add(new ClienteOpcao()
+            {
+                Id = 1,
+                ClienteId = 1,
+                OpcoesInvestimentoId = 2
+            });
+
+            context.cop.Add(new ClienteOpcao()
+            {
+                Id = 2,
+                ClienteId = 1,
+                OpcoesInvestimentoId = 3
+            });
+
+            context.cop.Add(new ClienteOpcao()
+            {
+                Id = 3,
+                ClienteId = 2,
+                OpcoesInvestimentoId = 1
+            });
+
             base.Seed(context);
         }
     }

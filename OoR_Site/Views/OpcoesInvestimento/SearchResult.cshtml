@@ -1,0 +1,43 @@
+﻿@model OoR_Site.Models.ClienteOpcao
+
+@{
+    ViewBag.Title = "Investimentos Comprados";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <h2>Resultado dos Investimentos Comprados</h2>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Cliente")
+        </th>
+        <th>
+            @Html.DisplayName("Investimento")
+        </th>
+        <th>
+            @Html.DisplayName("Valor de Desconto")
+        </th>
+    </tr>
+
+@foreach (var item in Model.cops) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpcoesInvestimento.descricao)
+        </td>
+        <td>
+            R$@Html.DisplayFor(modelItem => item.OpcoesInvestimento.valor)
+        </td>
+    </tr>
+}
+    <tr>
+        <td colspan="3" class="text-right"><b>Total: </b>R$@ViewBag.ValorTotal</td>
+    </tr>
+
+</table>
